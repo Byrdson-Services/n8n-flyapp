@@ -9,7 +9,6 @@ on:
   
 concurrency:
   group: ${{ github.workflow }}
-  cancel-in-progress: true
   
 jobs:
   deploy:
@@ -24,6 +23,6 @@ jobs:
         uses: superfly/flyctl-actions/setup-flyctl@v1
         
       - name: Deploy to fly.io
-        run: flyctl deploy
+        run: flyctl deploy --detach
         env:
           FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
