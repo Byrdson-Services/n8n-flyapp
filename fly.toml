@@ -1,11 +1,11 @@
 app = 'n8n-byrdson'
 primary_region = 'sin'
-kill_signal = "SIGTERM"
-kill_timeout = "2m0s"
+kill_signal = 'SIGTERM'
+kill_timeout = '2m0s'
 swap_size_mb = 1024
 
 [build]
-  image = 'n8nio/n8n:1.100.1'
+  image = 'n8nio/n8n:1.101.2'
 
 [env]
   N8N_HOST = 'n8n.byrdsonservices.com'
@@ -32,9 +32,9 @@ swap_size_mb = 1024
 [http_service]
   internal_port = 5678
   force_https = true
-  auto_stop_machines = 'stop'
+  auto_stop_machines = 'suspend'
   auto_start_machines = true
-  min_machines_running = 1
+  min_machines_running = 0
   processes = ['app']
 
   [http_service.concurrency]
