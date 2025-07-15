@@ -19,15 +19,13 @@ swap_size_mb = 1024
   N8N_DIAGNOSTICS_ENABLED = 'false'
   N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS = 'true'
   N8N_HIRING_BANNER_ENABLED = 'false'
+  N8N_METRICS = 'true'
   N8N_PROXY_HOPS = '1'
   N8N_RUNNERS_ENABLED = 'true'
   EXECUTIONS_DATA_PRUNE = 'true'
   EXECUTIONS_DATA_MAX_AGE = '168'
+  QUEUE_HEALTH_CHECK_ACTIVE = 'true'
   TINI_SUBREAPER = 'true'
-
-[[mounts]]
-  source = 'n8n_byrdson_volume'
-  destination = '/home/node/.n8n'
 
 [http_service]
   internal_port = 5678
@@ -42,6 +40,17 @@ swap_size_mb = 1024
     hard_limit = 100
     soft_limit = 50
 
+[[mounts]]
+  source = 'n8n_byrdson_volume'
+  destination = '/home/node/.n8n'
+  auto_extend_size_threshold = 80
+  auto_extend_size_increment = '1GB'
+  auto_extend_size_limit = '5GB'
+
 [[vm]]
   size = 'shared-cpu-2x'
   memory_mb = 2048
+
+[metrics]
+  port = 5678
+  path = '/metrics'

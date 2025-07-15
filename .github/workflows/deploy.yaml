@@ -1,10 +1,10 @@
 name: Deploy to fly.io
 on:
-#  push:
-#    branches:
-#      - main
-#    paths:
-#      - fly.toml
+  push:
+    branches:
+      - main
+    paths:
+      - fly.toml
   workflow_dispatch:
   
 concurrency:
