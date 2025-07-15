@@ -24,6 +24,7 @@ swap_size_mb = 1024
   N8N_RUNNERS_ENABLED = 'true'
   EXECUTIONS_DATA_PRUNE = 'true'
   EXECUTIONS_DATA_MAX_AGE = '168'
+  EXECUTIONS_DATA_PRUNE_MAX_COUNT = '10000'
   QUEUE_HEALTH_CHECK_ACTIVE = 'true'
   TINI_SUBREAPER = 'true'
 
@@ -43,7 +44,7 @@ swap_size_mb = 1024
 [[mounts]]
   source = 'n8n_byrdson_volume'
   destination = '/home/node/.n8n'
-  auto_extend_size_threshold = 80
+  auto_extend_size_threshold = 90
   auto_extend_size_increment = '1GB'
   auto_extend_size_limit = '5GB'
 
