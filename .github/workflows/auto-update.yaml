@@ -10,6 +10,7 @@ concurrency:
 jobs:
   update:
     permissions:
+      actions: write
       contents: write
     runs-on: ubuntu-latest
     steps:
@@ -30,8 +31,15 @@ jobs:
           version: ${{ steps.n8n.outputs.version }}
           
       - name: Add and commit fly.toml
+        id: add-and-commit
         uses: EndBug/add-and-commit@v9
         with:
           add: fly.toml
           default_author: github_actions
           message: 'chore: Update n8n to ${{ steps.n8n.outputs.version }}'
+          
+      - name: Deploy to fly.io
+        if: steps.add-and-commit.outputs.committed == 'true'
+        run: gh workflow run deploy.yaml
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
