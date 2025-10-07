@@ -51,7 +51,7 @@ swap_size_mb = 1024
 
 [[vm]]
   size = 'shared-cpu-2x'
-  memory_mb = 2048
+  memory_mb = 4096
 
 [metrics]
   port = 5678
