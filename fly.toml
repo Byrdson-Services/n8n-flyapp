@@ -2,7 +2,6 @@ app = 'n8n-byrdson'
 primary_region = 'sin'
 kill_signal = 'SIGTERM'
 kill_timeout = '2m0s'
-swap_size_mb = 1024
 
 [build]
   image = 'n8nio/n8n:1.114.4'
@@ -18,13 +17,13 @@ swap_size_mb = 1024
   N8N_DEFAULT_BINARY_DATA_MODE = 'filesystem'
   N8N_DIAGNOSTICS_ENABLED = 'false'
   N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS = 'true'
-  N8N_FORMDATA_FILE_SIZE_MAX = '500'
+  N8N_FORMDATA_FILE_SIZE_MAX = '400'
   N8N_HIRING_BANNER_ENABLED = 'false'
   N8N_METRICS = 'true'
   N8N_PROXY_HOPS = '1'
   N8N_RUNNERS_ENABLED = 'true'
   EXECUTIONS_DATA_PRUNE = 'true'
-  EXECUTIONS_DATA_MAX_AGE = '336'
+  EXECUTIONS_DATA_MAX_AGE = '168'
   EXECUTIONS_DATA_PRUNE_MAX_COUNT = '10000'
   QUEUE_HEALTH_CHECK_ACTIVE = 'true'
   TINI_SUBREAPER = 'true'
@@ -47,7 +46,7 @@ swap_size_mb = 1024
   destination = '/home/node/.n8n'
   auto_extend_size_threshold = 90
   auto_extend_size_increment = '1GB'
-  auto_extend_size_limit = '5GB'
+  auto_extend_size_limit = '10GB'
 
 [[vm]]
   size = 'shared-cpu-2x'
