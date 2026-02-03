@@ -46,6 +46,7 @@ kill_timeout = '2m0s'
   auto_extend_size_threshold = 90
   auto_extend_size_increment = '1GB'
   auto_extend_size_limit = '10GB'
+  scheduled_snapshots = false
 
 [[vm]]
   size = 'shared-cpu-2x'
