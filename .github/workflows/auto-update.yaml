@@ -21,6 +21,7 @@ jobs:
         id: n8n
         run: |
           version=$(gh api repos/n8n-io/n8n/releases/latest -q .tag_name)
+          if [[ "$version" != *"n8n@2"* ]]; then exit 1; fi
           echo version=${version#n8n@} >> $GITHUB_OUTPUT
         env:
           GITHUB_TOKEN: ${{ github.token }}

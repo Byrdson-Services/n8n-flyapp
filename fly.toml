@@ -4,7 +4,7 @@ kill_signal = 'SIGTERM'
 kill_timeout = '2m0s'
 
 [build]
-  image = 'n8nio/n8n:stable'
+  image = 'n8nio/n8n:2.12.3'
 
 [env]
   N8N_HOST = 'n8n.byrdsonservices.com'
@@ -15,7 +15,6 @@ kill_timeout = '2m0s'
   DB_POSTGRESDB_USER = 'postgres'
   DB_POSTGRESDB_SSL_CA_FILE = '/home/node/.n8n/prod-ca-2021.crt'
   N8N_DEFAULT_BINARY_DATA_MODE = 'filesystem'
-  N8N_DIAGNOSTICS_ENABLED = 'false'
   N8N_FORMDATA_FILE_SIZE_MAX = '400'
   N8N_HIRING_BANNER_ENABLED = 'false'
   N8N_METRICS = 'true'
@@ -36,9 +35,9 @@ kill_timeout = '2m0s'
   processes = ['app']
 
   [http_service.concurrency]
-    type = 'connections'
-    hard_limit = 100
-    soft_limit = 50
+    type = 'requests'
+    hard_limit = 200
+    soft_limit = 100
 
 [[mounts]]
   source = 'n8n_byrdson_volume'
