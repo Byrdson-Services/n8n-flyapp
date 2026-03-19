@@ -1,5 +1,5 @@
 # n8n on fly.io for Byrdson Services
-An n8n self-hosted instance hosted on fly.io made especially for Byrdson Services' Robotic Process Automation (RPA) team.
+An n8n self-hosted instance hosted on fly.io made especially for Byrdson Services' tech team.
 
 ## fly.io Deployment
 1. Create a Supabase Postgres database.
@@ -14,3 +14,11 @@ An n8n self-hosted instance hosted on fly.io made especially for Byrdson Service
 
 ## Change server configuration
 1. `fly deploy`
+
+## .env contents
+```
+DB_POSTGRESDB_HOST=
+DB_POSTGRESDB_PASSWORD=
+N8N_ENCRYPTION_KEY=
+N8N_USER_MANAGEMENT_JWT_SECRET=
+```
