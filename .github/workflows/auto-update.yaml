@@ -1,7 +1,8 @@
 name: Auto update n8n
 on:
   schedule:
-    - cron: '7 4 * * 0-5'
+    - cron: '7 0 * * 1-5'
+      timezone: 'America/Chicago'
   workflow_dispatch:
   
 concurrency:
@@ -20,8 +21,7 @@ jobs:
       - name: Get n8n latest version
         id: n8n
         run: |
-          version=$(gh api repos/n8n-io/n8n/releases/latest -q .tag_name)
-          if [[ "$version" != *"n8n@2"* ]]; then exit 1; fi
+          version=$(gh api repos/n8n-io/n8n/releases?per_page=5 -q 'map(select(.tag_name != null and .prerelease == false and (.tag_name | startswith("n8n@2."))))[0].tag_name')
           echo version=${version#n8n@} >> $GITHUB_OUTPUT
         env:
           GITHUB_TOKEN: ${{ github.token }}
