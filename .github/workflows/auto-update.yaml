@@ -34,7 +34,7 @@ jobs:
           
       - name: Add and commit fly.toml
         id: add-and-commit
-        uses: EndBug/add-and-commit@v10
+        uses: EndBug/add-and-commit@v11
         with:
           add: fly.toml
           default_author: github_actions
